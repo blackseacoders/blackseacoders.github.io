@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sevastopol ruby community pages</title>
+  </head>
+
+  <body>
+    <h1>Sevastopol ruby community pages</h1>
+
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://sevastopolrb.slack.com">Slack</a></li>
+    </ul>
+
+    <h2>Invite yourself to our slack chat</h2>
+
+    <p id="message"></p>
+
+    <form action="https://izruq77r6b.execute-api.us-east-1.amazonaws.com/dev/invite" method="post" onsubmit="invite(); return false;">
+      <label for="email">
+        Email
+        <input name="email" type="text">
+      </label>
+
+      <input type="submit" value="Send invitation">
+    </form>
+
+    <script>
+      function invite(){
+        var form = document.forms[0]
+
+        if(form.email.value != '') {
+          var xhr = new XMLHttpRequest();
+          xhr.open('POST', form.action);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              var body = JSON.parse(response.body);
+              document.getElementById('message').innerText = response.body;
+            }
+          };
+
+          xhr.send(JSON.stringify({email: form.email.value}));
+        }
+      }
+
+    </script>
+  </body>
+</html>
