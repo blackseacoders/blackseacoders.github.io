@@ -2,28 +2,31 @@
 <html>
   <head>
     <title>Sevastopol ruby community pages</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   </head>
 
   <body>
-    <h1>Sevastopol ruby community pages</h1>
+    <div class="container">
+      <h1>Sevastopol ruby community pages</h1>
 
-    <h2>Links</h2>
-    <ul>
-      <li><a href="https://sevastopolrb.slack.com">Slack</a></li>
-    </ul>
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://sevastopolrb.slack.com">Slack</a></li>
+      </ul>
 
-    <h2>Invite yourself to our slack chat</h2>
+      <h2>Invite yourself to our slack chat</h2>
 
-    <p id="message"></p>
+      <p id="message"></p>
 
-    <form action="https://izruq77r6b.execute-api.us-east-1.amazonaws.com/dev/invite" method="post" onsubmit="invite(); return false;">
-      <label for="email">
-        Email
-        <input name="email" type="text">
-      </label>
+      <form class="form-inline" action="https://izruq77r6b.execute-api.us-east-1.amazonaws.com/dev/invite" method="post" onsubmit="invite(); return false;">
+        <div class="form-group">
+          <input class="form-control" name="email" type="text" placeholder="email@example.com">
+        </div>
 
-      <input type="submit" value="Send invitation">
-    </form>
+        <button class="btn btn-success" type="submit">Send invitation</button>
+      </form>
+    </div>
 
     <script>
       function invite(){
