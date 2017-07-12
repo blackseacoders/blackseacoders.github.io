@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sevastopol ruby community pages</title>
+    <title>BlackSeaCoders</title>
     <link href="assets/stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   </head>
 
   <body>
-		<nav class="navbar navbar-default visible-lg-block">
-			<div class="navbar-header">
-				<span class="navbar-brand" href="#">Links</span>
-			</div>
-			<div class="container-fluid">
-				<ul class="nav navbar-nav">
-					<li><a href="https://blackseacoders.slack.com">Slack</a></li>
-				</ul>
-			</div>
-		</nav>
+    <nav class="navbar navbar-default visible-lg-block">
+      <div class="navbar-header">
+        <span class="navbar-brand" href="#">Links</span>
+      </div>
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="https://blackseacoders.slack.com">Slack</a></li>
+        </ul>
+      </div>
+    </nav>
 
-		<nav class="navbar navbar-default navbar-fixed-bottom hidden-lg">
-			<div class="container-fluid">
-				<ul class="nav navbar-nav">
-					<li><a href="https://blackseacoders.slack.com">Slack</a></li>
-				</ul>
-			</div>
-		</nav>
+    <nav class="navbar navbar-default navbar-fixed-bottom hidden-lg">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="https://blackseacoders.slack.com">Slack</a></li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
-      <h1>Sevastopol ruby community pages</h1>
+      <h1>BlackSeaCoders community</h1>
 
       <h2>Invite yourself to our slack chat</h2>
 
@@ -46,20 +46,20 @@
       function invite(){
         var form = document.forms[0]
 
-        if(form.email.value != '') {
-          var xhr = new XMLHttpRequest();
-          xhr.open('POST', form.action);
-          xhr.setRequestHeader('Content-Type', 'application/json');
-          xhr.onload = function() {
-            if (xhr.status === 200) {
-              var response = JSON.parse(xhr.responseText);
-              var body = JSON.parse(response.body);
-              document.getElementById('message').innerText = response.body;
-            }
-          };
+          if(form.email.value != '') {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+              if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                var body = JSON.parse(response.body);
+                document.getElementById('message').innerText = response.body;
+              }
+            };
 
-          xhr.send(JSON.stringify({email: form.email.value}));
-        }
+            xhr.send(JSON.stringify({email: form.email.value}));
+          }
       }
 
     </script>
