@@ -8,67 +8,10 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default visible-lg-block">
-      <div class="navbar-header">
-        <span class="navbar-brand" href="#">Links</span>
-      </div>
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li><a href="https://blackseacoders.slack.com">Slack</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-default navbar-fixed-bottom hidden-lg">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li><a href="https://blackseacoders.slack.com">Slack</a></li>
-        </ul>
-      </div>
-    </nav>
-
     <div class="container">
       <h1>BlackSeaCoders community</h1>
+      <a href="https://join.slack.com/t/blackseacoders/shared_invite/enQtNTM3MTk5MDYyMTk3LThkNzU1MGM2OGNhYWY4OTA5YjQ5NWFmMzM2N2YyYTE0YWJkZTg2Mzk1NmFiYzIxOWE0MmQ4YzYxYzQ1NzNhNjY" target="_blank">Invite yourself</a> to our <a href="https://blackseacoders.slack.com">Slack workspace</a>
 
-      <h2>Invite yourself to our slack chat</h2>
-
-      <p id="message"></p>
-
-      <form class="form-inline" action="https://jb4radl34e.execute-api.us-east-1.amazonaws.com/dev/invite" method="post" onsubmit="invite(); return false;">
-        <div class="form-group">
-          <input class="form-control" name="email" type="text" placeholder="email@example.com">
-        </div>
-
-        <button class="btn btn-success" type="submit">Send invitation</button>
-      </form>
     </div>
-
-    <script>
-      function invite(){
-        var form = document.forms[0]
-
-          if(form.email.value != '') {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', form.action);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-              if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                var error = response.error;
-
-                if (error) {
-                  document.getElementById('message').innerText = error.replace(/_/g, ' ');
-                } else {
-                  document.getElementById('message').innerText = 'Check your email, we have sent an invitation!';
-                  form.reset();
-                }
-              }
-            };
-
-            xhr.send(JSON.stringify({email: form.email.value}));
-          }
-      }
-
-    </script>
   </body>
 </html>
