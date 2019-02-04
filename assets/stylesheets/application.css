@@ -1,3 +1,16 @@
+body {
+  font-size: 20px;
+  background-color: #e7ecef;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+header .subtitle {
+  font-size: 75%;
+}
+
 .chat-screenshot {
   margin-top: 1em;
   width: 100%;
